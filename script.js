@@ -16,17 +16,20 @@
 // // Add event listener to generate button
 // generateBtn.addEventListener("click", writePassword);
 
+
 function noOfChar () {
    let result=false;
    let password = "";
-   var passwordLen = prompt("how many char would u like your password to contain?");
+   const element = document.getElementById("password");
+   
+   var passwordLen = prompt("how many characters would u like your password to contain?");
   
     while (passwordLen<8){
-      alert("password length should contain at least 8 character");
-      passwordLen = prompt("please enter number more than or equal to 8");
+      alert("password length should contain at least 8 characters");
+      passwordLen = prompt("please enter eight or more characters");
     }
    
-    result =confirm("Do you want to include special character?");
+    result =confirm("Do you want to include special characters?");
       
     if(result == true){
       result = confirm("Do you want to include uppercase letters?");
@@ -37,14 +40,30 @@ function noOfChar () {
     }
 
     if(result ==true){
-      pasword = "I am here , this is me password"
+      password = generatePassword(passwordLen);
+      //element.innerHTML= "this is mypassword";
+      element.innerHTML= password;
     }
-
-   document.getElementById ("aria-label");
-    
-
   
-  return password;
 
 }//end of function
+function generateRandomLowerCase() {
+  const alphabetLOWER = "abcdefghijklmnopqrstuvwxyz"
+
+  return alphabetLOWER[Math.floor(Math.random() * alphabetLOWER.length)]
+}
+function generateRandomNumber() {
+   return Math.floor(Math.random() * 10);
+}
+function generateUpperRandomCase() {
+  const alphabetUPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+  return alphabetUPPER[Math.floor(Math.random() * alphabetUPPER.length)]
+}
+function generateRandomSpecialChar() {
+  const specialCharactersString = "!@#$%&*()'+,-./:;<=>?[]^_`{|}"
+
+  return specialCharactersString[Math.floor(Math.random() * specialCharactersString.length)]
+}
+
 
