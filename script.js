@@ -66,4 +66,14 @@ function generateRandomSpecialChar() {
   return specialCharactersString[Math.floor(Math.random() * specialCharactersString.length)]
 }
 
-
+function generatePassword(passwordLen) {
+  let count=1;
+  var password="";
+ while(count<=passwordLen){
+  if (count<=passwordLen){password += generateRandomLowerCase();count++; } 
+  if (count<=passwordLen){password += generateUpperRandomCase();count++; } 
+  if (count<=passwordLen){password += generateRandomSpecialChar();count++; } 
+  if (count<=passwordLen){password += generateRandomNumber();count++; } 
+ }
+ return password;
+}
